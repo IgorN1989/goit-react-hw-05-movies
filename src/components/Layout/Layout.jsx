@@ -1,23 +1,17 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+
+import { Header } from 'components/Header/Header';
+import { ContentContainer } from './Layout.styled';
 
 export const Layout = () => {
   return (
-    <div>
-      <header style={{ outline: '1px solid red' }}>
-        <nav>
-          <ul>
-            <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/movies">Movies</NavLink>
-            </li>
-          </ul>
-        </nav>
-      </header>
-      <main>
+    <>
+      <Header />
+      <ContentContainer>
         <Outlet />
-      </main>
-    </div>
+      </ContentContainer>
+      <Toaster position="top-center" />
+    </>
   );
 };

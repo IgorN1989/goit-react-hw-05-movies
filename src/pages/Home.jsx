@@ -1,30 +1,51 @@
-// import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-import { Link } from 'react-router-dom';
+import { PageTitle } from 'components/Titles/Titles.styled';
+import { MoviesList } from 'components/MoviesList/MoviesList';
+import { Loader } from 'components/Loader/Loader';
+import { ErrorMessage } from 'components/ErrorMessage/ErrorMessage.styled';
+
+import { fetchTrendingMovies } from 'api/movie-api';
+
+// ========================================================
 
 export default function Home() {
-  //   useEffect(() => {
-  //     // HTTP
-  //   }, []);
+  const [trendingMovies, setTrendingMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
-  const arr = [
-    { title: 'movie-1', id: 1 },
-    { title: 'movie-2', id: 2 },
-    { title: 'movie-3', id: 3 },
-    { title: 'movie-4', id: 4 },
-    { title: 'movie-5', id: 5 },
-    { title: 'movie-6', id: 6 },
-    { title: 'movie-7', id: 7 },
-    { title: 'movie-8', id: 8 },
-  ];
+  const location = useLocation();
+
+  useEffect(() => {
+    async function getTrendingMovies() {
+      try {
+        setLoading(true);
+        setError(false);
+        const response = await fetchTrendingMovies();
+        const fetchedMovies = response.results;
+        setTrendingMovies(fetchedMovies);
+      } catch (error) {
+        setTrendingMovies([]);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    getTrendingMovies();
+  }, []);
 
   return (
-    <div>
-      {arr.map(movie => (
-        <li key={movie.id}>
-          <Link to={`movies/${movie.id}`}>{movie.title}</Link>
-        </li>
-      ))}
-    </div>
+    <>
+      <PageTitle>Trending today</PageTitle>
+      {loading && <Loader />}
+      {error && (
+        <ErrorMessage>Whoops! Error! Please reload this page!</ErrorMessage>
+      )}
+      {trendingMovies.length > 0 && (
+        <MoviesList movies={trendingMovies} location={location} />
+      )}
+    </>
   );
 }
