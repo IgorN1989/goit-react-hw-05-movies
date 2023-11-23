@@ -19,7 +19,7 @@ export const MoviesListItem = ({
     : `https://image.tmdb.org/t/p/w500${poster_path}`;
 
   return (
-    <Link to={`movies/${id}`} state={{ from: location }}>
+    <Link to={`/movies/${id}`} state={{ from: location }}>
       <MovieContainer>
         {(backdrop_path || poster_path) && (
           <MoviePoster src={posterUrl} alt={title} loading="lazy" />

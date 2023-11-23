@@ -38,7 +38,7 @@ export default function Home() {
 
   return (
     <>
-      <PageTitle>Trending today</PageTitle>
+      {!error && <PageTitle>Trending today</PageTitle>}
       {loading && <Loader />}
       {error && (
         <ErrorMessage>Whoops! Error! Please reload this page!</ErrorMessage>
