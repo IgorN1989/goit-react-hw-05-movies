@@ -1,14 +1,19 @@
 import { SiThemoviedatabase } from 'react-icons/si';
-import { StyledHeader, NavList, NavPageLink } from './Header.styled';
-import { MainTitle } from 'components/Titles/Titles.styled';
+import {
+  StyledHeader,
+  LogoLink,
+  MainTitle,
+  NavList,
+  NavPageLink,
+} from './Header.styled';
 
 export const Header = () => {
   return (
     <StyledHeader>
-      <NavPageLink to="/">
-        <SiThemoviedatabase size={48} color="rgb(144, 206, 161)" />
+      <LogoLink to="/">
+        <SiThemoviedatabase size={48} />
         <MainTitle>MovieSearch</MainTitle>
-      </NavPageLink>
+      </LogoLink>
 
       <nav>
         <NavList>
