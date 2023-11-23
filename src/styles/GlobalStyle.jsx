@@ -24,8 +24,6 @@ body {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: ${p => p.theme.colors.primaryColor};
-  color: white;
 }
 
 img {

@@ -9,7 +9,7 @@ export const Loader = () => (
       ariaLabel="progress-bar-loading"
       wrapperStyle={{}}
       wrapperClass="progress-bar-wrapper"
-      borderColor="rgb(144, 206, 161)"
+      borderColor="rgb(13, 37, 63)"
       barColor="rgb(1, 180, 228)"
     />
   </LoaderContainer>

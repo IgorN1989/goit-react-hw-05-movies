@@ -9,7 +9,7 @@ export const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 ${p => p.theme.spacing(2)};
+  padding: ${p => p.theme.spacing(1)} ${p => p.theme.spacing(4)};
   background-color: ${p => p.theme.colors.primaryColor};
   box-shadow: ${p => p.theme.shadow};
 `;
@@ -18,7 +18,7 @@ export const LogoLink = styled(Link)`
   display: flex;
   align-items: center;
   gap: ${p => p.theme.spacing(2)};
-  padding: ${p => p.theme.spacing(1)};
+
   color: ${p => p.theme.colors.secondaryColor};
   font-size: 24px;
 
@@ -37,7 +37,6 @@ export const NavList = styled.ul`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-right: ${p => p.theme.spacing(2)};
 `;
 
 export const NavPageLink = styled(NavLink)`
