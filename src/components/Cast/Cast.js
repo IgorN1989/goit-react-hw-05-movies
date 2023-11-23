@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import { fetchMovieCredits } from 'api/movie-api';
 
-export const Cast = () => {
+export default function Cast() {
   const [cast, setCast] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -19,9 +19,7 @@ export const Cast = () => {
         setLoading(true);
         setError(false);
         const response = await fetchMovieCredits(movieId);
-
         setCast(response.cast);
-        // toast.success('We found movies!');
       } catch (error) {
         setError(true);
       } finally {
@@ -32,7 +30,6 @@ export const Cast = () => {
     getMovieCredits();
   }, [movieId]);
 
-  console.log(cast);
   return (
     <div>
       <ul>
@@ -51,4 +48,4 @@ export const Cast = () => {
       </ul>
     </div>
   );
-};
+}

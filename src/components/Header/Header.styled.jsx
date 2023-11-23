@@ -11,7 +11,7 @@ export const StyledHeader = styled.header`
   align-items: center;
   padding: 0 ${p => p.theme.spacing(2)};
   background-color: ${p => p.theme.colors.primaryColor};
-  border-bottom: 2px solid ${p => p.theme.colors.secondaryColor};
+  box-shadow: ${p => p.theme.shadow};
 `;
 
 export const NavPageLink = styled(NavLink)`

@@ -15,8 +15,12 @@ export const SearchbarForm = styled.form`
 export const SearchbarInput = styled.input`
   border: 2px solid ${p => p.theme.colors.secondaryColor};
   border-radius: ${p => p.theme.radius};
-
+  transition: all ${p => p.theme.transition};
   outline: none;
+
+  &:focus {
+    box-shadow: ${p => p.theme.shadow};
+  }
 `;
 
 export const SearchbarBtn = styled.button`

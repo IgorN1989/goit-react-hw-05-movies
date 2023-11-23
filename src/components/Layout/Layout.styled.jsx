@@ -5,5 +5,5 @@ export const ContentContainer = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: ${p => p.theme.spacing(3)};
+  padding: ${p => p.theme.spacing(6)} ${p => p.theme.spacing(3)};
 `;

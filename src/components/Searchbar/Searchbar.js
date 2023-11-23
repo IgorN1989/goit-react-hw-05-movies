@@ -23,12 +23,12 @@ export const Searchbar = ({ onSubmitSearch, onResetSearch }) => (
         autoFocus
         placeholder="Search movie..."
       />
-      <SearchbarBtn>
+      <SearchbarBtn type="submit">
         <ImSearch size={16} />
       </SearchbarBtn>
+      <SearchbarBtn type="button" onClick={onResetSearch}>
+        <ImCancelCircle size={16} />
+      </SearchbarBtn>
     </SearchbarForm>
-    <SearchbarBtn onClick={onResetSearch}>
-      <ImCancelCircle size={16} />
-    </SearchbarBtn>
   </SearchbarContainer>
 );

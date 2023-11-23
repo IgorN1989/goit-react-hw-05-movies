@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import { fetchMovieReviews } from 'api/movie-api';
 
-export const Reviews = () => {
+export default function Reviews() {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -32,8 +32,6 @@ export const Reviews = () => {
     getMovieReviews();
   }, [movieId]);
 
-  console.log(reviews);
-
   return (
     <div>
       <ul>
@@ -48,4 +46,4 @@ export const Reviews = () => {
       </ul>
     </div>
   );
-};
+}

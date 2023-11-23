@@ -4,22 +4,25 @@ import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { IoMdReturnLeft } from 'react-icons/io';
 import { BackLink, SectionLink } from 'components/Links/Links.styled';
 import { MovieInfo } from 'components/MovieInfo/MovieInfo';
+import { Loader } from 'components/Loader/Loader';
+import { ErrorMessage } from 'components/ErrorMessage/ErrorMessage.styled';
 
 import { fetchMovieDetails } from 'api/movie-api';
 
 // ========================================================
 
-export default function MovieDetais() {
+const MovieDetais = () => {
   const [movieDetails, setMovieDetails] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
   const location = useLocation();
   const backLinkLocationRef = useRef(location.state?.from ?? '/movies');
+
   const { movieId } = useParams();
 
   useEffect(() => {
-    async function getMovieDetails() {
+    const getMovieDetails = async () => {
       try {
         setLoading(true);
         setError(false);
@@ -30,7 +33,7 @@ export default function MovieDetais() {
       } finally {
         setLoading(false);
       }
-    }
+    };
 
     getMovieDetails();
   }, [movieId]);
@@ -41,16 +44,13 @@ export default function MovieDetais() {
         <IoMdReturnLeft size={24} />
         <p>Go back</p>
       </BackLink>
-      <MovieInfo info={movieDetails} />
-      <ul>
-        <li>
-          <SectionLink to="cast">Cast</SectionLink>
-        </li>
-        <li>
-          <SectionLink to="reviews">Reviews</SectionLink>
-        </li>
-      </ul>
-      <Outlet />
+      {loading && <Loader />}
+      {error && (
+        <ErrorMessage>Whoops! Error! Please reload this page!</ErrorMessage>
+      )}
+      {!error && <MovieInfo info={movieDetails}></MovieInfo>}
     </>
   );
-}
+};
+
+export default MovieDetais;

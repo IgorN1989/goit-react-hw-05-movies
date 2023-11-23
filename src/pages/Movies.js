@@ -3,7 +3,7 @@ import { useSearchParams, useLocation } from 'react-router-dom';
 import { fetchSearchMovies } from 'api/movie-api';
 import toast from 'react-hot-toast';
 import { MoviesList } from 'components/MoviesList/MoviesList';
-import { PageTitle } from 'components/Titles/Titles.styled';
+
 import { Searchbar } from 'components/Searchbar/Searchbar';
 import { Loader } from 'components/Loader/Loader';
 import { ErrorMessage } from 'components/ErrorMessage/ErrorMessage.styled';
