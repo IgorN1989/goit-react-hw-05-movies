@@ -26,7 +26,7 @@ export const Searchbar = ({ onSubmitSearch, onResetSearch }) => (
       <SearchbarBtn type="submit">
         <ImSearch size={24} />
       </SearchbarBtn>
-      <SearchbarBtn type="button" onClick={onResetSearch}>
+      <SearchbarBtn type="reset" onClick={onResetSearch}>
         <ImCancelCircle size={24} />
       </SearchbarBtn>
     </SearchbarForm>
