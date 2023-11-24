@@ -26,7 +26,7 @@ export const MovieInfo = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const posterUrl = `https://image.tmdb.org/t/p/w500${poster_path}`;
   const releaseYear = release_date ? `(${release_date.slice(0, 4)})` : '';
-  const userScore = vote_average ? Math.round(vote_average * 10) : 0;
+  const userScore = vote_average ? `${Math.round(vote_average * 10)}%` : '';
   const genresStr = genres ? genres.map(genre => genre.name).join(', ') : [];
 
   const openModal = () => {
@@ -50,7 +50,7 @@ export const MovieInfo = ({
         </MovieTitle>
         <div>
           <SectionTitle>User Score:</SectionTitle>
-          <Text>{userScore}%</Text>
+          <Text>{userScore}</Text>
         </div>
         <div>
           <SectionTitle>Overview</SectionTitle>
