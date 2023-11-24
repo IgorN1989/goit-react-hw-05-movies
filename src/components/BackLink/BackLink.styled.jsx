@@ -13,7 +13,6 @@ export const StyledLink = styled(Link)`
   border-radius: ${p => p.theme.radius};
   font-size: 24px;
   font-weight: 700;
-  text-transform: uppercase;
   transition: all ${p => p.theme.transition};
 
   &:hover {
