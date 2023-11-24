@@ -5,7 +5,6 @@ import { Loader } from 'components/Loader/Loader';
 import { ErrorMessage } from 'components/ErrorMessage/ErrorMessage.styled';
 
 import {
-  ReviewsContainer,
   ReviewsList,
   ReviewsCard,
   ReviewsAuthor,
@@ -51,18 +50,16 @@ export default function Reviews() {
         <ErrorMessage>Whoops! Error! Please reload this page!</ErrorMessage>
       )}
       {(reviews.length > 0 && (
-        <ReviewsContainer>
-          <ReviewsList>
-            {reviews.map(review => (
-              <li key={review.id}>
-                <ReviewsCard>
-                  <ReviewsAuthor>{review.author}</ReviewsAuthor>
-                  <ReviewsContent>{review.content}</ReviewsContent>
-                </ReviewsCard>
-              </li>
-            ))}
-          </ReviewsList>
-        </ReviewsContainer>
+        <ReviewsList>
+          {reviews.map(review => (
+            <li key={review.id}>
+              <ReviewsCard>
+                <ReviewsAuthor>{review.author}</ReviewsAuthor>
+                <ReviewsContent>{review.content}</ReviewsContent>
+              </ReviewsCard>
+            </li>
+          ))}
+        </ReviewsList>
       )) || <Message>We don`t have any reviews for this movie.</Message>}
     </>
   );

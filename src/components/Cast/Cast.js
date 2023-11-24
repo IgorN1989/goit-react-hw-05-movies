@@ -49,28 +49,30 @@ export default function Cast() {
       {error && (
         <ErrorMessage>Whoops! Error! Please reload this page!</ErrorMessage>
       )}
-      <CastList>
-        {cast.map(({ id, name, profile_path, character }) => (
-          <li key={id}>
-            <ActorCard>
-              <PhotoContainer>
-                {profile_path && (
-                  <Photo
-                    src={`https://image.tmdb.org/t/p/w300${profile_path}`}
-                    alt={name}
-                    loading="lazy"
-                  />
-                )}
-              </PhotoContainer>
+      {cast.length > 0 && (
+        <CastList>
+          {cast.map(({ id, name, profile_path, character }) => (
+            <li key={id}>
+              <ActorCard>
+                <PhotoContainer>
+                  {profile_path && (
+                    <Photo
+                      src={`https://image.tmdb.org/t/p/w300${profile_path}`}
+                      alt={name}
+                      loading="lazy"
+                    />
+                  )}
+                </PhotoContainer>
 
-              <Names>
-                <ActorName>{name}</ActorName>
-                <CharacterName>{character}</CharacterName>
-              </Names>
-            </ActorCard>
-          </li>
-        ))}
-      </CastList>
+                <Names>
+                  <ActorName>{name}</ActorName>
+                  <CharacterName>{character}</CharacterName>
+                </Names>
+              </ActorCard>
+            </li>
+          ))}
+        </CastList>
+      )}
     </>
   );
 }
