@@ -17,6 +17,8 @@ export const SearchbarInput = styled.input`
   border-radius: ${p => p.theme.radius};
   transition: all ${p => p.theme.transition};
   outline: none;
+  background-color: ${p => p.theme.colors.primaryColor};
+  color: white;
 
   &:focus {
     box-shadow: ${p => p.theme.shadow};
