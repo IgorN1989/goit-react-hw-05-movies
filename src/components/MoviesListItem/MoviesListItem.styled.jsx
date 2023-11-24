@@ -3,16 +3,17 @@ import styled from 'styled-components';
 export const MovieContainer = styled.div`
   position: relative;
   overflow: hidden;
-  width: 100%;
   height: 240px;
-  border: 2px solid ${p => p.theme.colors.primaryColor};
+  padding: ${p => p.theme.spacing(0.5)};
+  border: 2px solid ${p => p.theme.colors.secondaryColor};
+  background-color: ${p => p.theme.colors.primaryColor};
   border-radius: ${p => p.theme.radius};
 
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to bottom,
     rgba(1, 180, 228, 0.5),
     rgba(144, 206, 161, 0.5)
-  );
+  ); */
 
   transition: all ${p => p.theme.transition};
 
@@ -26,7 +27,8 @@ export const MovieContainer = styled.div`
 
 export const MoviePoster = styled.img`
   width: 100%;
-  height: 240px;
+  height: 228px;
+  border-radius: ${p => p.theme.radius};
   object-fit: cover;
 `;
 

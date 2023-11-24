@@ -31,7 +31,7 @@ export const MoviesListItem = ({
             <p>({releaseYear})</p>
             <Score>
               <BiSolidLike size={18} />
-              <span>{userScore} %</span>
+              <span>{userScore}%</span>
             </Score>
           </AdditionalInfo>
         </MovieInfo>
