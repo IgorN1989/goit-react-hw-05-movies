@@ -21,6 +21,12 @@ export const Poster = styled.img`
   width: 100%;
   height: 330px;
   object-fit: cover;
+  transition: all ${p => p.theme.transition};
+
+  &:hover {
+    transform: scale(1.03);
+    cursor: zoom-in;
+  }
 `;
 
 export const Description = styled.div`
