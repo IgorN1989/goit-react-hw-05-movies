@@ -22,7 +22,8 @@ export const ReviewsCard = styled.div`
 
 export const ReviewsAuthor = styled.h5`
   color: ${p => p.theme.colors.secondaryColor};
-  font-size: 24px;
+  font-size: 16px;
+  font-weight: 700;
 `;
 
 export const ReviewsContent = styled.p`
