@@ -24,10 +24,10 @@ export const Searchbar = ({ onSubmitSearch, onResetSearch }) => (
         placeholder="Search movie..."
       />
       <SearchbarBtn type="submit">
-        <ImSearch size={16} />
+        <ImSearch size={24} />
       </SearchbarBtn>
       <SearchbarBtn type="button" onClick={onResetSearch}>
-        <ImCancelCircle size={16} />
+        <ImCancelCircle size={24} />
       </SearchbarBtn>
     </SearchbarForm>
   </SearchbarContainer>

@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const StyledButton = styled.button`
-  margin: ${p => p.theme.spacing(4)} auto;
+  margin: ${p => p.theme.spacing(2)} auto;
   padding: ${p => p.theme.spacing(1)} ${p => p.theme.spacing(2)};
   border-radius: ${p => p.theme.radius};
   background-color: ${p => p.theme.colors.primaryColor};
-  transition: all ${p => p.theme.transition};
+  padding: ${p => p.theme.spacing(1)} ${p => p.theme.spacing(2)};
   text-align: center;
   display: block;
   color: ${p => p.theme.colors.secondaryColor};
@@ -13,14 +13,12 @@ export const StyledButton = styled.button`
   text-decoration: none;
   cursor: pointer;
   font-family: inherit;
-  font-size: 18px;
-  line-height: 24px;
-  font-style: normal;
-  font-weight: 500;
-  min-width: 180px;
+  font-size: 24px;
+  font-weight: 700;
+  min-width: 230px;
+  transition: all ${p => p.theme.transition};
   &:hover {
     color: ${p => p.theme.colors.hoverColor};
-    border-color: ${p => p.theme.colors.hoverColor};
     box-shadow: ${p => p.theme.shadow};
   }
 `;

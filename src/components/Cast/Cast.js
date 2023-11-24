@@ -1,8 +1,21 @@
 import { useEffect, useState } from 'react';
-
 import { useParams } from 'react-router-dom';
 
+import { Loader } from 'components/Loader/Loader';
+import { ErrorMessage } from 'components/ErrorMessage/ErrorMessage.styled';
+import {
+  CastList,
+  ActorCard,
+  PhotoContainer,
+  Photo,
+  Names,
+  ActorName,
+  CharacterName,
+} from './Cast.styled';
+
 import { fetchMovieCredits } from 'api/movie-api';
+
+// ========================================================
 
 export default function Cast() {
   const [cast, setCast] = useState([]);
@@ -31,21 +44,33 @@ export default function Cast() {
   }, [movieId]);
 
   return (
-    <div>
-      <ul>
-        {cast.map(actor => (
-          <li key={actor.id}>
-            <div>
-              <img
-                src={`https://image.tmdb.org/t/p/w300${actor.profile_path}`}
-                alt={actor.name}
-              />
-              <h4>{actor.name}</h4>
-              <p>{actor.character}</p>
-            </div>
+    <>
+      {loading && <Loader />}
+      {error && (
+        <ErrorMessage>Whoops! Error! Please reload this page!</ErrorMessage>
+      )}
+      <CastList>
+        {cast.map(({ id, name, profile_path, character }) => (
+          <li key={id}>
+            <ActorCard>
+              <PhotoContainer>
+                {profile_path && (
+                  <Photo
+                    src={`https://image.tmdb.org/t/p/w300${profile_path}`}
+                    alt={name}
+                    loading="lazy"
+                  />
+                )}
+              </PhotoContainer>
+
+              <Names>
+                <ActorName>{name}</ActorName>
+                <CharacterName>{character}</CharacterName>
+              </Names>
+            </ActorCard>
           </li>
         ))}
-      </ul>
-    </div>
+      </CastList>
+    </>
   );
 }

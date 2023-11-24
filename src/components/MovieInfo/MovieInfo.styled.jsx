@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const MainInfo = styled.div`
   display: flex;
   gap: ${p => p.theme.spacing(4)};
-  padding: ${p => p.theme.spacing(4)};
+  padding: ${p => p.theme.spacing(4)} ${p => p.theme.spacing(2)};
   background-color: ${p => p.theme.colors.primaryColor};
   border: 2px solid ${p => p.theme.colors.secondaryColor};
   border-radius: ${p => p.theme.radius};
@@ -40,9 +40,5 @@ export const SectionTitle = styled.h4`
 `;
 
 export const Text = styled.p`
-  font-size: 20px;
-`;
-
-export const AdditionalInfo = styled.div`
-  background-color: tomato;
+  font-size: 16px;
 `;

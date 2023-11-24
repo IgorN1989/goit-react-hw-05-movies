@@ -25,7 +25,10 @@ export default function MovieDetais() {
   const { movieId } = useParams();
 
   useEffect(() => {
-    const getMovieDetails = async () => {
+    if (!movieId) {
+      return;
+    }
+    async function getMovieDetails() {
       try {
         setLoading(true);
         setError(false);
@@ -36,7 +39,7 @@ export default function MovieDetais() {
       } finally {
         setLoading(false);
       }
-    };
+    }
 
     getMovieDetails();
   }, [movieId]);

@@ -6,7 +6,7 @@ export const StyledLink = styled(Link)`
   justify-content: space-between;
   align-items: center;
   width: 230px;
-  padding: ${p => p.theme.spacing(1)};
+  padding: ${p => p.theme.spacing(1)} ${p => p.theme.spacing(2)};
   color: ${p => p.theme.colors.secondaryColor};
   background-color: ${p => p.theme.colors.primaryColor};
   border: 2px solid ${p => p.theme.colors.secondaryColor};
